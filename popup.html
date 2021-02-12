@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <ul class="tab-wrapper">
+      <li data-container="1">Date</li>
+      <li data-container="2">Notes</li>
+      <li data-container="3">Color picker</li>
+    </ul>
+    <div class="popup" id="container-1">
+      <small>Now</small>
+      <h3 id="current">...</h3>
+
+      <div class="flex">
+        <input
+          type="number"
+          id="input-timestamp"
+          placeholder="Insert timestamp"
+        />
+        <button id="convert">Convert</button>
+      </div>
+
+      <br /><br />
+      <section class="result"></section>
+    </div>
+
+    <div id="container-2">
+      <details>
+        <summary>New</summary>
+        <div class="details-content">
+          <div class="flex">
+            <input type="text" id="input-note-title" placeholder="Title" />
+            <input
+              type="text"
+              id="input-note-description"
+              placeholder="Description"
+            />
+          </div>
+          <button id="create-note-btn">Create</button>
+        </div>
+      </details>
+      <section class="notes-list"></section>
+    </div>
+    <div id="container-3" class="color-picker">
+      <input type="color" id="color-input" value="#000000" />
+      <input type="text" id="selected-color" value="#000000" readonly />
+    </div>
+
+    <script type="module" src="./scripts/jml.js"></script>
+    <script src="./scripts/popup.js"></script>
+    <script src="./scripts/tabs.js"></script>
+    <script src="./scripts/colors.js"></script>
+    <script type="module" src="./scripts/notes.js"></script>
+  </body>
+</html>
