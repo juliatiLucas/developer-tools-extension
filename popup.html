@@ -10,25 +10,47 @@
   </head>
   <body>
     <ul class="tab-wrapper">
-      <li data-container="1">Date</li>
+      <li data-container="1">Dates</li>
       <li data-container="2">Notes</li>
-      <li data-container="3">Color picker</li>
+      <li data-container="3">Colors</li>
     </ul>
     <div class="popup" id="container-1">
       <small>Now</small>
       <h3 id="current">...</h3>
+      <br />
+      <details>
+        <summary>Timestamp to date</summary>
+        <section>
+          <div class="flex">
+            <input
+              type="number"
+              id="input-timestamp"
+              placeholder="Insert timestamp"
+            />
+            <button id="convert" data-result-type="date">Convert</button>
+          </div>
 
-      <div class="flex">
-        <input
-          type="number"
-          id="input-timestamp"
-          placeholder="Insert timestamp"
-        />
-        <button id="convert">Convert</button>
-      </div>
+          <br /><br />
+          <section class="date-result"></section>
+          <br />
+        </section>
+      </details>
+      <details>
+        <summary>Date to timestamp</summary>
+        <section>
+          <div class="flex">
+            <input
+              type="text"
+              id="input-date"
+              placeholder="Insert date string"
+            />
+            <button id="convert" data-result-type="timestamp">Convert</button>
+          </div>
 
-      <br /><br />
-      <section class="result"></section>
+          <br /><br />
+          <section class="timestamp-result"></section>
+        </section>
+      </details>
     </div>
 
     <div id="container-2">
@@ -51,10 +73,12 @@
     <div id="container-3" class="color-picker">
       <input type="color" id="color-input" value="#000000" />
       <input type="text" id="selected-color" value="#000000" readonly />
+      <br />
+      <input type="text" id="rgb-input" placeholder="RGB" value="0, 0, 0" readonly />
     </div>
 
     <script type="module" src="./scripts/jml.js"></script>
-    <script src="./scripts/popup.js"></script>
+    <script src="./scripts/dates.js"></script>
     <script src="./scripts/tabs.js"></script>
     <script src="./scripts/colors.js"></script>
     <script type="module" src="./scripts/notes.js"></script>
