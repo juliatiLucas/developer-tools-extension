@@ -4,15 +4,22 @@ const descriptionInput = document.querySelector('#input-note-description')
 const createNoteBtn = document.querySelector('#create-note-btn')
 const notesList = document.querySelector('.notes-list')
 
-
-document.querySelector('li[data-container="2"]')
-    .addEventListener('click', (e) => getNotes())
+document.querySelector('li[data-container="2"]').addEventListener('click', (e) => getNotes())
 
 function deleteItem(notes, index) {
     notes.splice(index, 1)
 
     chrome.storage.sync.set({ notes }, () => { })
     getNotes()
+}
+
+function editItem(e, notes, index) {
+    if (e.key === 'Enter') {
+        notes[index]['description'] = e.target.value
+
+        chrome.storage.sync.set({ notes }, () => { })
+        getNotes()
+    }
 }
 
 function getNotes() {
@@ -24,7 +31,7 @@ function getNotes() {
                 ml('div', { class: 'list-item' }, [
                     ml('div', {}, [
                         ml('strong', {}, [item.title]),
-                        ml('span', {}, [item.description]),
+                        ml('textarea', { cols: '44', rows: '3', onkeypress: (e) => editItem(e, notes, index) }, [item.description]),
                     ]),
                     ml('span', { id: 'close', onclick: () => deleteItem(notes, index) }, ['×'])
                 ])

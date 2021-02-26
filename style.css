@@ -68,18 +68,34 @@ hr {
 
 .tab-wrapper li {
   flex: 1;
-  padding: 13px 0;
-  text-align: center;
-  font-size: 16px;
+  padding: 11px 0;
+  font-size: 14px;
   list-style: none;
   opacity: 0.82;
   background-color: #fff;
+  user-select: none;
   filter: brightness(0.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-wrapper i {
+  font-size: 18px;
+  margin-right: 4px;
 }
 
 .tab-wrapper li:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tab-wrapper li::before {
+  background-color: transparent;
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
 }
 
 div[id^="container-"] {
@@ -104,6 +120,30 @@ details .details-content {
   justify-content: stretch;
 }
 
+#color-history {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  position: relative;
+  height: 36px;
+  overflow: hidden;
+}
+
+#color-history::before {
+  content: "History";
+  opacity: 0.8;
+  top: 15px;
+  position: absolute;
+}
+
+.color-item {
+  height: 28px;
+  width: 28px;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: 3px;
+}
+
 details .details-content button {
   margin-top: 8px;
 }
@@ -121,6 +161,7 @@ details[open] + .notes-list {
   display: flex;
   flex-direction: column;
   height: 90%;
+  overflow-x: hidden;
   overflow-y: auto;
 }
 
@@ -190,10 +231,30 @@ details[open] + .notes-list {
   background: #555;
 }
 
+.text-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: stretch;
+}
+
+textarea {
+  width: 100%;
+  background-color: inherit;
+  color: #333;
+  max-height: 180px;
+  opacity: 0.9;
+  resize: vertical;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #232323;
     color: #ddd;
+  }
+
+  textarea {
+    color: #ddd;
+    border: 1px solid #444;
   }
 
   input {

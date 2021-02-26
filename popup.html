@@ -6,13 +6,23 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <ul class="tab-wrapper">
-      <li data-container="1">Dates</li>
-      <li data-container="2">Notes</li>
-      <li data-container="3">Colors</li>
+      <li data-container="1">
+        <i class="material-icons"> calendar_today </i><span>Dates</span>
+      </li>
+      <li data-container="2">
+        <i class="material-icons"> text_snippet </i><span>Notes</span>
+      </li>
+      <li data-container="3">
+        <i class="material-icons"> palette </i><span>Colors</span>
+      </li>
     </ul>
     <div class="popup" id="container-1">
       <small>Now</small>
@@ -74,13 +84,21 @@
       <input type="color" id="color-input" value="#000000" />
       <input type="text" id="selected-color" value="#000000" readonly />
       <br />
-      <input type="text" id="rgb-input" placeholder="RGB" value="0, 0, 0" readonly />
+      <input
+        type="text"
+        id="rgb-input"
+        placeholder="RGB"
+        value="0, 0, 0"
+        readonly
+      />
+      <section id="color-history"></section>
+      <button id="clear-history-btn">Clear</button>
     </div>
 
     <script type="module" src="./scripts/jml.js"></script>
     <script src="./scripts/dates.js"></script>
     <script src="./scripts/tabs.js"></script>
-    <script src="./scripts/colors.js"></script>
+    <script type="module" src="./scripts/colors.js"></script>
     <script type="module" src="./scripts/notes.js"></script>
   </body>
 </html>
